@@ -4,6 +4,8 @@ import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 
+import static io.restassured.RestAssured.given;
+
 public class TestBase {
     @BeforeAll
     static void setup() {
