@@ -1,11 +1,11 @@
 package tests;
 
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
 import static filters.CustomLogFilter.customLogFilter;
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class EchoTest extends TestBase {
     // Сервер слушает порт 8080, адрес / (т.е. урл для запроса http://localhost:8080/), запросы типа POST
