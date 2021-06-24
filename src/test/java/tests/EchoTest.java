@@ -23,13 +23,12 @@ public class EchoTest extends TestBase {
                 .filter(customLogFilter().withCustomTemplates())
                 .contentType("text/plain; charset=UTF-8")
                 .body("")
-                .when()
+        .when()
                 .post()
-                .then()
+        .then()
                 .statusCode(200)
-                .assertThat()
                 .log().body()
-                .extract().response();
+                .and().time(lessThan(6000L));
 
     }
 
@@ -39,13 +38,13 @@ public class EchoTest extends TestBase {
                 .filter(customLogFilter().withCustomTemplates())
                 .contentType(ContentType.TEXT)
                 .body("")
-                .when()
+        .when()
                 .post()
-                .then()
+        .then()
                 .statusCode(200)
                 .assertThat()
                 .log().body()
-                .extract().response();
+                .and().time(lessThan(5000L));
     }
 
     @Test
@@ -54,13 +53,13 @@ public class EchoTest extends TestBase {
                 .filter(customLogFilter().withCustomTemplates())
                 .contentType(ContentType.TEXT)
                 .body("")
-                .when()
+        .when()
                 .post()
-                .then()
+        .then()
                 .statusCode(200)
                 .assertThat()
                 .log().body()
-                .extract().response();
+                .and().time(lessThan(4000L));
     }
 }
 
