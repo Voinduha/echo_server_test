@@ -22,7 +22,7 @@ public class EchoTest extends TestBase {
         given()
                 .filter(customLogFilter().withCustomTemplates())
                 .contentType("text/plain; charset=UTF-8")
-                .basePath("user/upload/avatar")
+                .basePath("/src/test/resources/")
                 .multiPart("avatar", avatarFile, "application/octet-stream")
         .when()
                 .post()
