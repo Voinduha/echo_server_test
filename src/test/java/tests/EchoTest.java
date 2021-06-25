@@ -36,7 +36,7 @@ public class EchoTest extends TestBase {
     void withAllLogTest() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
-                .contentType(ContentType.TEXT)
+                .contentType("text/plain; charset=UTF-8")
                 .body("")
         .when()
                 .post()
@@ -51,7 +51,7 @@ public class EchoTest extends TestBase {
     void withCustomFilterTest() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
-                .contentType(ContentType.TEXT)
+                .contentType("text/plain; charset=UTF-8"))
                 .body("")
         .when()
                 .post()
