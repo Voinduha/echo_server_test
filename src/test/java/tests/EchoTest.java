@@ -43,7 +43,6 @@ public class EchoTest extends TestBase {
                 .post()
         .then()
                 .statusCode(200)
-                .assertThat()
                 .log().body()
                 .and().time(lessThan(5000L));
     }
@@ -59,7 +58,6 @@ public class EchoTest extends TestBase {
                 .post()
         .then()
                 .statusCode(200)
-                .assertThat()
                 .log().body()
                 .and().time(lessThan(5000L));
     }
