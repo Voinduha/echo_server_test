@@ -77,7 +77,18 @@ public class EchoTest extends TestBase {
                 .and().time(lessThan(5000L));
     }
     
-    
+     @Test
+    void withTimeMoreThenFiveMc() {
+        given()
+                .filter(customLogFilter().withCustomTemplates())
+                .contentType("text/plain; charset=UTF-8"))
+        .when()
+                .post()
+        .then()
+                .statusCode(200)
+                .log().body()
+                .and().time(lessThan(6000L));
+    }
 }
 
 
