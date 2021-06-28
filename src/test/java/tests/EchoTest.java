@@ -17,7 +17,7 @@ public class EchoTest extends TestBase {
      */
 
     @Test
-    void echoTestType() {
+    void echoTestTypeWithAllConditions() {
 
         given()
                 .filter(customLogFilter().withCustomTemplates())
@@ -29,12 +29,12 @@ public class EchoTest extends TestBase {
         .then()
                 .statusCode(200)
                 .log().body()
-                .and().time(lessThan(6000L));
+                .and().time(lessThan(5000L));
 
     }
 
     @Test
-    void withAllLogTest() {
+    void withAllLogTestWithContentType() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
                 .contentType("text/plain; charset=UTF-8")
@@ -49,18 +49,19 @@ public class EchoTest extends TestBase {
     }
 
     @Test
-    void withCustomFilterTest() {
+    void withFileMoreThenFourMb() {
         given()
                 .filter(customLogFilter().withCustomTemplates())
                 .contentType("text/plain; charset=UTF-8"))
-                .body("")
+                .basePath("/src/test/resources/")
+                .multiPart("avatar4001", avatarFile, "application/octet-stream")
         .when()
                 .post()
         .then()
                 .statusCode(200)
                 .assertThat()
                 .log().body()
-                .and().time(lessThan(4000L));
+                .and().time(lessThan(5000L));
     }
 }
 
