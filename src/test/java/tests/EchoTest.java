@@ -61,6 +61,23 @@ public class EchoTest extends TestBase {
                 .log().body()
                 .and().time(lessThan(5000L));
     }
+    
+     @Test
+    void withFileLessThenFourMb() {
+        given()
+                .filter(customLogFilter().withCustomTemplates())
+                .contentType("text/plain; charset=UTF-8"))
+                .basePath("/src/test/resources/")
+                .multiPart("avatar3097", avatarFile, "application/octet-stream")
+        .when()
+                .post()
+        .then()
+                .statusCode(200)
+                .log().body()
+                .and().time(lessThan(5000L));
+    }
+    
+    
 }
 
 
